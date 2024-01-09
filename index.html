@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="inputBox">
+        <br><br> 
+    <button onclick="Lowercase()">Convert to Lowercase</button> 
+
+    <button onclick="Uppercase()">Convert to Uppercase</button>
+
+    <button id="save" onclick="Replace()">Replace Text</button>
+
+    <button onclick="copyText()">Copy text</button>
+
+    <button onclick="ClearText()">Clear Text</button>
+   <br><br>
+<span id="spanA"></span>
+    <script>
+    function copyText() {
+          var copyText = document.getElementById("inputBox");
+          copyText.select();
+          copyText.setSelectionRange(0, 99999); 
+          navigator.clipboard.writeText(copyText.value);
+          alert("Copied the text: " + copyText.value);
+        }
+    function ClearText() {
+        document.getElementById("inputBox").value = '';
+    }
+
+
+function Replace(){
+    document.getElementById("spanA").innerHTML
+    = inputBox.value;
+}
+        </script>
+</body>
+</html>
