@@ -4,22 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <input type="text" id="inputBox">
-        <br><br> 
-    <button onclick="Lowercase()">Convert to Lowercase</button> 
+    <div class="motherDiv">
+        
+        <div class="div1">
+          <textarea name="" id="inputBox" cols="50" rows="3" ></textarea>
+        </div>
+        <div class="div2">
+            <textarea name="" id="spanA" cols="50" rows="3"></textarea>
+            <!-- <span id="spanA"></span><br> -->
+        </div>
+        <div class="div3">
+            <button onclick="Lower()">Convert to Lowercase</button> 
 
-    <button onclick="Uppercase()">Convert to Uppercase</button>
+            <button onclick="Upper()">Convert to Uppercase</button>
+        
+            <button id="save" onclick="Replace()">Replace Text</button>
+        
+            <button onclick="copyText()">Copy text</button>
+        
+            <button onclick="ClearText()">Clear Text</button>
+           
+        </div>
+    </div>
 
-    <button id="save" onclick="Replace()">Replace Text</button>
-
-    <button onclick="copyText()">Copy text</button>
-
-    <button onclick="ClearText()">Clear Text</button>
-   <br><br>
-<span id="spanA"></span>
     <script>
+let inputValue= document.getElementById('inputBox');
+ let spanValue=document.getElementById('spanA');
+
+function Lower(){
+    spanValue.innerHTML=inputValue.value.toLowerCase();
+}
+
+    function Upper() {
+        spanValue.innerHTML=inputValue.value.toUpperCase();
+    }
+
+
     function copyText() {
           var copyText = document.getElementById("inputBox");
           copyText.select();
@@ -27,15 +50,36 @@
           navigator.clipboard.writeText(copyText.value);
           alert("Copied the text: " + copyText.value);
         }
+        
     function ClearText() {
         document.getElementById("inputBox").value = '';
+        document.getElementById("spanA").innerText = '';
+
     }
-
-
+  
+  
 function Replace(){
+    let inputBox = document.getElementById("inputBox").value;
     document.getElementById("spanA").innerHTML
-    = inputBox.value;
+    = inputBox.replace(/i|am|emon|emon|sumon|joni|roni|anis|and/,matched => correction[matched]);
+  
 }
+
+let correction = {
+    "i":'আমি',
+    'am':"হয়",
+    'emon':'ইমন',
+    'sumon':'সুমন',
+    'joni':'জনি',
+    'roni':'রনি',
+    'anis':'আনিস',
+    'and':'এবং',
+};
+
+
+
+
+
         </script>
 </body>
 </html>
