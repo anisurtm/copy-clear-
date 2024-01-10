@@ -31,6 +31,14 @@
     </div>
 
     <script>
+ function copyText() {
+          var copyText = document.getElementById("inputBox");
+          copyText.select();
+          copyText.setSelectionRange(0, 99999); 
+          navigator.clipboard.writeText(copyText.value);
+          alert("Copied the text: " + copyText.value);
+        }
+
 let inputValue= document.getElementById('inputBox');
  let spanValue=document.getElementById('spanA');
 
@@ -43,13 +51,7 @@ function Lower(){
     }
 
 
-    function copyText() {
-          var copyText = document.getElementById("inputBox");
-          copyText.select();
-          copyText.setSelectionRange(0, 99999); 
-          navigator.clipboard.writeText(copyText.value);
-          alert("Copied the text: " + copyText.value);
-        }
+   
         
     function ClearText() {
         document.getElementById("inputBox").value = '';
